@@ -1,9 +1,4 @@
--- =============================================================
---  Схема БД для ЛР2: Отчёты по анализам
---  Запускать: psql -U postgres -d lab2db -f schema.sql
--- =============================================================
 
--- ─── Пользователи ─────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS users (
     id            SERIAL PRIMARY KEY,
     login         TEXT NOT NULL UNIQUE,
@@ -41,14 +36,3 @@ CREATE TABLE IF NOT EXISTS report_lines (
 );
 
 CREATE INDEX IF NOT EXISTS idx_lines_report ON report_lines(report_id);
-
--- ─── Пример данных (закомментирован) ─────────────────────────
--- INSERT INTO users(login, password_hash) VALUES
---   ('admin', 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'); -- пустой пароль
-
--- =============================================================
---  Для сброса (осторожно!):
---  DROP TABLE IF EXISTS report_lines CASCADE;
---  DROP TABLE IF EXISTS reports CASCADE;
---  DROP TABLE IF EXISTS users CASCADE;
--- =============================================================
