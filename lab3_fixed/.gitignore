@@ -1,0 +1,9 @@
+.gradle/
+build/
+out/
+
+.idea/
+*.iml
+
+db.cfg
+users.csv

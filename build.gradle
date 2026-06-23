@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'ru.itmo.TolstovaUrsu'
+version = '3.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'ru.itmo.TolstovaUrsu.Main'
+}
+
+javafx {
+    version = '17.0.2'
+    modules = ['javafx.controls']
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // PostgreSQL JDBC driver
+    implementation 'org.postgresql:postgresql:42.7.3'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.itmo.TolstovaUrsu.Main'
+    }
+    // fat jar — включает все зависимости
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    tasks.named('run', JavaExec) {
+        jvmArgs += [
+                '-Dfile.encoding=UTF-8',
+                '-Dsun.stdout.encoding=UTF-8',
+                '-Dsun.stderr.encoding=UTF-8'
+        ]
+    }
+}
