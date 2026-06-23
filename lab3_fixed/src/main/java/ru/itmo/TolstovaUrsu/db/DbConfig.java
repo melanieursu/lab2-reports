@@ -43,7 +43,7 @@ public final class DbConfig {
             createTemplate(file);
         }
 
-        String url  = props.getProperty("db.url",      "jdbc:postgresql://localhost:5432/lab3db");
+        String url  = props.getProperty("db.url",      "jdbc:postgresql://localhost:5433/lab3db");
         String user = props.getProperty("db.user",     "postgres");
         String pass = props.getProperty("db.password", "");
         return new DbConfig(url.trim(), user.trim(), pass.trim());

@@ -55,7 +55,7 @@ public final class DbConfig {
             createTemplate(file);
         }
 
-        String url  = props.getProperty("db.url",      "jdbc:postgresql://localhost:5432/lab3db");
+        String url  = props.getProperty("db.url",      "jdbc:postgresql://localhost:5433/lab3db");
         String user = props.getProperty("db.user",     "postgres");
         String pass = props.getProperty("db.password", "");
         return new DbConfig(url.trim(), user.trim(), pass.trim());
@@ -65,7 +65,7 @@ public final class DbConfig {
         try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
             pw.println("# Конфигурация подключения к PostgreSQL");
             pw.println("# Можно переопределить переменными окружения: DB_URL, DB_USER, DB_PASSWORD");
-            pw.println("db.url=jdbc:postgresql://localhost:5432/lab3db");
+            pw.println("db.url=jdbc:postgresql://localhost:5433/lab3db");
             pw.println("db.user=postgres");
             pw.println("db.password=secret");
             System.out.println("[DbConfig] Создан шаблон конфигурации: " + file.getAbsolutePath());
