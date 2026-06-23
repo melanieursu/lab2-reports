@@ -16,11 +16,6 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-/**
- * Окно «Визуальная история изменений объекта» — показывает график изменения
- * значения конкретной строки отчёта (ReportLine) во времени, а также таблицу
- * всех зафиксированных событий (INSERT / UPDATE / DELETE).
- */
 public class LineHistoryDialog extends Dialog<Void> {
 
     private static final DateTimeFormatter FMT =

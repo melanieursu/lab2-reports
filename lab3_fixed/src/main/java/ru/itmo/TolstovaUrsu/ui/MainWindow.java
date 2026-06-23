@@ -87,7 +87,7 @@ public class MainWindow {
         root.setBottom(statusBar);
         BorderPane.setMargin(statusBar, new Insets(4, 8, 4, 8));
 
-        // ─── listeners ─────────────────────────────────────────
+        // ─── listeners ───────────────────
         reportTable.getSelectionModel().selectedItemProperty().addListener(
                 (obs, old, sel) -> {
                     refreshDetail(sel);
